@@ -12,6 +12,13 @@ This project was bootstrapped with Create React App.
 | MongoDB database connecton for user data  |   |
 | User mailing system towards support team  |   |
 
+## Dependencies
+```npm install ffmpeg```
+```npm install fluent-ffmpeg```
+```npm install @material-ui/core```
+```npm install @material-ui/core```
+
+
 
 ### To Run it:
 >```cd server```
