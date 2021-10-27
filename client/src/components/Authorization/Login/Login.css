@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-direction: column;
+  padding-top: 6rem;
+}
+
+.email-container,
+.password-container {
+  margin: 20px !important;
+  width: 250px;
+}
+
+.login-button {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 0.7em;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.2em 0.2em;
+  text-decoration: none;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.login-button:hover {
+  box-shadow: 0 0 40px 40px #872f2f inset;
+  color: white;
+}
+
+.register-button {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0px solid rgb(0, 0, 0);
+  border-radius: 0.6em;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.8em 0.8em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  align-content: center;
+}
+
+.register-button:hover {
+  box-shadow: 0 0 40px 40px #872f2f inset;
+  color: white;
+}
