@@ -32,7 +32,7 @@ const Login = ({ login }) => {
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
       {error !== "" ? <Alert severity="error">{error}</Alert> : null}
       <div className="title">
         <h1>Login</h1>

@@ -18,9 +18,8 @@ const Nav = styled.div`
 `;
 
 const NavIcon = styled(Link)`
-  margin-left: 2rem;
-  font-size: 2rem;
-  height: 80px;
+  padding: 1rem;
+  font-size: 2.3rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -33,7 +32,7 @@ export const NavMenu = styled.div`
   text-decoration: none;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    align-items: center;
   }
 `;
 
@@ -41,10 +40,6 @@ export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
   margin-right: 24px;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 
   &:hover {
     transition: all 0.4s ease-in-out;
@@ -64,6 +59,10 @@ export const NavBtnLink = styled(Link)`
   transition: all 0.4s ease-in-out;
   text-decoration: none;
 
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
   &:hover {
     transition: all 0.4s ease-in-out;
     background: #fff;
@@ -76,9 +75,13 @@ export const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 1rem;
-  height: 100%;
+  padding: 0rem;
   cursor: pointer;
+  font-size: 1.4rem;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const SidebarNav = styled.nav`
@@ -109,21 +112,15 @@ const Sidebar = ({ loggedIn, logout }) => {
       <IconContext.Provider value={{ color: "#fff" }}>
         <div>
           <Nav className="topnav">
-            {loggedIn ? (
+            <NavMenu>
               <NavIcon to="#">
                 <FaIcons.FaBars onClick={showSidebar} />
               </NavIcon>
-            ) : (
-              <></>
-            )}
 
-            <NavMenu>
               {loggedIn ? (
-                <NavBtn>
-                  <NavBtnLink to="/login" onClick={logout}>
-                    Sign Out
-                  </NavBtnLink>
-                </NavBtn>
+                <NavBtnLink to="/login" onClick={logout}>
+                  Sign Out
+                </NavBtnLink>
               ) : (
                 <>
                   <NavBtn>
@@ -133,10 +130,8 @@ const Sidebar = ({ loggedIn, logout }) => {
                 </>
               )}
 
-              <NavIcon>
-                <NavLink to="/">
-                  <AiIcons.AiFillHome />
-                </NavLink>
+              <NavIcon to="/">
+                <AiIcons.AiFillHome />
               </NavIcon>
             </NavMenu>
           </Nav>
