@@ -62,15 +62,7 @@ const Login = ({ login }) => {
       <div style={{ padding: "3rem 3rem", marginTop: "4rem" }}>
         <p>Not a member yet? Sign up!</p>
         <div style={{ paddingTop: "1.2rem" }}>
-          <Link
-            style={{ margin: "3rem" }}
-            className="register-button"
-            to={{
-              pathname: "/register",
-            }}
-          >
-            Sign Up
-          </Link>
+          <Link className="register-button">Sign Up</Link>
         </div>
       </div>
     </div>

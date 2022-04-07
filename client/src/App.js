@@ -2,6 +2,8 @@ import "./App.css";
 import React from "react";
 import { useState } from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/HomePage";
 import About from "./pages/AboutPage";
@@ -25,6 +27,7 @@ export default function App() {
     <div className="App">
       <Router>
         <Sidebar loggedIn={loggedIn} logout={logout} />
+        <Header />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/home" exact component={Home} />
@@ -37,6 +40,7 @@ export default function App() {
           </Route>
           <Route path="/register" exact component={Register} />
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

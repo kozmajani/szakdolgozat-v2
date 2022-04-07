@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FormControl, InputLabel, Input, Button } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../Login/Login.css";
 
 export default function Register() {
@@ -45,10 +45,11 @@ export default function Register() {
           aria-describedby="my-helper-text"
         />
       </FormControl>
-
-      <Button color="grey" onClick={sendRegister}>
-        Sign Up
-      </Button>
+      <Link className="register-button">
+        <Button color="grey" onClick={sendRegister}>
+          Sign Up
+        </Button>
+      </Link>
     </div>
   );
 }
