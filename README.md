@@ -5,10 +5,10 @@ This project was bootstrapped with Create React App.
 
 | **The application's current features**  | **Yet to develop features** |
 | -------------: | :------------- |
-| Functioning side and top navigation bars (+CSS)  | Feed  |
+| Functioning side and top navigation bars (+CSS)  |  |
 | Path / URL control  | Video player and converter  |
-| Interface switching  | Video posting and rating |
-| Register / Login pages + functions with authorization  |   |
+| Interface switching  |  |
+| Register / Login pages + functions with authorization  |  |
 | MongoDB database connecton for user data  |   |
 | User mailing system towards support team  |   |
 
