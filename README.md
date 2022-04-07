@@ -5,7 +5,7 @@ This project was bootstrapped with Create React App.
 
 | **The application's current features**  | **Yet to develop features** |
 | -------------: | :------------- |
-| Functioning side and top navigation bars (+CSS)  |  |
+| Functioning side and top navigation bars (+CSS)  | Session tokens |
 | Path / URL control  | Video player and converter  |
 | Interface switching  |  |
 | Register / Login pages + functions with authorization  |  |
