@@ -1,8 +1,7 @@
 .container {
-  background: rgb(135, 47, 47);
   background: linear-gradient(
     180deg,
-    rgba(135, 47, 47, 1) 0%,
+    #1abc9c 0%,
     rgba(65, 65, 65, 1) 48%,
     rgba(23, 23, 23, 1) 100%
   );
@@ -18,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5%;
+  padding: 3rem;
   flex-direction: column;
   box-shadow: 0px 30px 40px 3px rgba(0, 0, 0, 0.6);
   font-style: italic;
@@ -26,7 +25,7 @@
 
 .support-title {
   color: white;
-  font-size: 2.5rem;
+  font-size: 2rem;
   padding-bottom: 2rem;
 }
 
@@ -47,6 +46,12 @@
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.6);
   color: white;
+  cursor: pointer;
+}
+.submit-button:hover {
+  color: rgb(255, 255, 255);
+  background: #1abc9c;
+  box-shadow: 0px 1px 10px 3px rgba(46, 46, 46, 0.6);
 }
 
 textarea {

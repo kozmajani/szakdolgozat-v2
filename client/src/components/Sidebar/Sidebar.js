@@ -12,17 +12,21 @@ const Nav = styled.div`
   height: 80px;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   box-shadow: 2px 0px 10px 10px rgba(0, 0, 0, 0.9);
+`;
+
+const NavBars = styled(Link)`
+  padding: 1rem;
+  font-size: 2.3rem;
+  display: grid;
+  text-align: left;
+  align-items: center;
 `;
 
 const NavIcon = styled(Link)`
   padding: 1rem;
   font-size: 2.3rem;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
 `;
 
 export const NavMenu = styled.div`
@@ -30,9 +34,9 @@ export const NavMenu = styled.div`
   align-items: center;
   margin-right: 0px;
   text-decoration: none;
-
   @media screen and (max-width: 768px) {
-    align-items: center;
+    width: 100%;
+    justify-content: space-between;
   }
 `;
 
@@ -50,7 +54,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(Link)`
   border-radius: 10px;
-  background: #872f2f;
+  background: #1abc9c;
   padding: 10px 20px;
   color: #fff;
   border: none;
@@ -113,14 +117,17 @@ const Sidebar = ({ loggedIn, logout }) => {
         <div>
           <Nav className="topnav">
             <NavMenu>
-              <NavIcon to="#">
-                <FaIcons.FaBars onClick={showSidebar} />
-              </NavIcon>
-
               {loggedIn ? (
-                <NavBtnLink to="/login" onClick={logout}>
-                  Sign Out
-                </NavBtnLink>
+                <>
+                  <>
+                    <NavBars to="#">
+                      <FaIcons.FaBars onClick={showSidebar} />
+                    </NavBars>
+                  </>
+                  <NavBtnLink to="/login" onClick={logout}>
+                    Sign Out
+                  </NavBtnLink>
+                </>
               ) : (
                 <>
                   <NavBtn>
@@ -138,9 +145,9 @@ const Sidebar = ({ loggedIn, logout }) => {
         </div>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
-            <NavIcon to="#">
+            <NavBars to="#">
               <AiIcons.AiOutlineClose onClick={showSidebar} />
-            </NavIcon>
+            </NavBars>
             {SidebarData.map((item, index) => {
               return <SubMenu item={item} key={index} />;
             })}

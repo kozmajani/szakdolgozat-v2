@@ -26,6 +26,7 @@ const Author = () => {
           <div>kozmajani14@gmail.com</div>
           <div style={{ padding: "20px", fontSize: "1.5rem" }}>
             <a
+              className="a"
               target="_blank"
               rel="noreferrer"
               href="https://github.com/kozmajani/szakdolgozat-v2"

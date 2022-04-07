@@ -8,7 +8,7 @@ export const SidebarData = [
   {
     title: "Overview",
     path: "#",
-    icon: <AiIcons.AiFillHome />,
+    icon: <FaIcons.FaThList />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
 
@@ -16,7 +16,7 @@ export const SidebarData = [
       {
         title: "Home",
         path: "/home",
-        icon: <IoIcons.IoIosPaper />,
+        icon: <AiIcons.AiFillHome />,
       },
       {
         title: "About",
@@ -35,11 +35,11 @@ export const SidebarData = [
   {
     title: "Author",
     path: "/author",
-    icon: <IoIcons.IoMdPeople />,
+    icon: <FaIcons.FaUserTie />,
   },
 
   {
-    title: "Support",
+    title: "Help",
     path: "/support",
     icon: <IoIcons.IoMdHelpCircle />,
   },

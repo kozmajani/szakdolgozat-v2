@@ -14,6 +14,59 @@
   justify-content: center;
   font-size: 2rem;
 }
+.header {
+  padding: 60px;
+  padding-top: 130px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  border-bottom: 10px solid rgb(65, 65, 65);
+}
+.main {
+  flex: 80%;
+  background-color: white;
+  padding: 2rem;
+}
+.row {
+  height: 100%;
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1340px) {
+  .row {
+    flex-direction: column-reverse;
+    border-left: 20px solid rgb(65, 65, 65);
+  }
+  .side {
+    padding: 1rem;
+    font-size: 1rem;
+    justify-content: space-between;
+    display: flex;
+    flex: 100%;
+    flex-direction: row;
+  }
+}
+
+.sideimg {
+  padding: 1rem;
+  height: 150px;
+  width: 150px;
+}
+
+.sideimg:hover {
+  padding: 0.5rem;
+  background-color: rgb(82, 81, 81);
+}
+
+.side {
+  text-align: center;
+  color: white;
+  flex: 14%;
+  padding: 1rem;
+  background-color: rgb(65, 65, 65);
+}
 
 .home {
   display: flex;
@@ -29,6 +82,11 @@
   justify-content: center;
   font-size: 2rem;
 }
+.footer {
+  padding: 10px;
+  text-align: center;
+  background: #ddd;
+}
 
 .help-button {
   display: flex;
@@ -39,10 +97,11 @@
 }
 
 .topnav {
+  width: 100%;
   display: flex;
   padding: 15px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 1.2rem;
   position: fixed;
 }
@@ -58,19 +117,17 @@
   justify-content: center;
 }
 
-a {
+.a {
   text-decoration: none;
-  color: rgb(98, 45, 221);
+  color: #094136;
 }
-a:hover {
+.a:hover {
   color: white;
 }
 .main-container {
-  background: rgb(255, 156, 0);
   background: linear-gradient(
     0deg,
-    rgba(255, 156, 0, 1) 0%,
-    rgba(248, 255, 0, 0.7066666666666667) 22%,
+    rgba(26, 188, 156, 1) 0%,
     rgba(255, 255, 255, 0.27555555555555555) 37%,
     rgba(0, 0, 0, 1) 100%
   );
