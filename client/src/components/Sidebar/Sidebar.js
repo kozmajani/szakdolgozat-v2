@@ -96,7 +96,7 @@ const SidebarNav = styled.nav`
   justify-content: center;
   position: fixed;
   top: 0;
-  left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
+  left: ${({ sidebar }) => (sidebar ? "0" : "-300px")};
   transition: 350ms;
   box-shadow: 2px 0px 5px 5px rgba(0, 0, 0, 0.2);
   z-index: 10;
@@ -134,12 +134,11 @@ const Sidebar = ({ loggedIn, logout }) => {
                     <NavBtnLink to="/login">Sign In</NavBtnLink>
                   </NavBtn>
                   <NavLink to="/register">Be a member</NavLink>
+                  <NavIcon to="/">
+                    <AiIcons.AiFillHome />
+                  </NavIcon>
                 </>
               )}
-
-              <NavIcon to="/">
-                <AiIcons.AiFillHome />
-              </NavIcon>
             </NavMenu>
           </Nav>
         </div>

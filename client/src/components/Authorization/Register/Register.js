@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FormControl, InputLabel, Input, Button } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
+import Alert from "@material-ui/lab/Alert";
 import "../Login/Login.css";
 
 export default function Register() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const history = useHistory();
 
   const sendRegister = (e) => {
@@ -17,8 +19,14 @@ export default function Register() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newUser),
-    }).then((e) => {
-      history.push("/login");
+    }).then((res) => {
+      if (res.status === 200) {
+        history.push("/login");
+      } else if (res.status === 400) {
+        setError("You must fill the fields below!");
+      } else {
+        throw res.error;
+      }
     });
   };
 
@@ -27,8 +35,11 @@ export default function Register() {
       <div className="title">
         <h1>Register</h1>
       </div>
-      <FormControl className="email-container">
-        <InputLabel htmlFor="name">Username</InputLabel>
+      {error !== "" ? <Alert severity="error">{error}</Alert> : null}
+      <FormControl className="username-container">
+        <InputLabel htmlFor="name" required>
+          Username
+        </InputLabel>
         <Input
           id="name"
           onChange={(e) => setName(e.target.value)}
@@ -37,8 +48,11 @@ export default function Register() {
       </FormControl>
 
       <FormControl className="password-container">
-        <InputLabel htmlFor="password">Password</InputLabel>
+        <InputLabel htmlFor="password" required>
+          Password
+        </InputLabel>
         <Input
+          required
           id="email"
           onChange={(e) => setPassword(e.target.value)}
           type="password"

@@ -8,7 +8,7 @@ router.post("/register", async (req, res) => {
   });
   user.save((err) => {
     if (err) {
-      res.status(500).send("Error registering new user " + err.message);
+      res.status(400).send("Error registering new user " + err.message);
     } else {
       res.status(200).send("Successfully registered user");
     }

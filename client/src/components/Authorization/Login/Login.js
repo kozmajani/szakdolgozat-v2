@@ -33,12 +33,14 @@ const Login = ({ login }) => {
 
   return (
     <div className="login-container">
-      {error !== "" ? <Alert severity="error">{error}</Alert> : null}
       <div className="title">
         <h1>Login</h1>
       </div>
-      <FormControl className="email-container">
-        <InputLabel htmlFor="name">Username</InputLabel>
+      {error !== "" ? <Alert severity="error">{error}</Alert> : null}
+      <FormControl className="username-container">
+        <InputLabel htmlFor="name" required>
+          Username
+        </InputLabel>
         <Input
           id="name"
           onChange={(e) => setName(e.target.value)}
@@ -47,7 +49,9 @@ const Login = ({ login }) => {
       </FormControl>
 
       <FormControl className="password-container">
-        <InputLabel htmlFor="password">Password</InputLabel>
+        <InputLabel htmlFor="password" required>
+          Password
+        </InputLabel>
         <Input
           id="email"
           type="password"
@@ -59,11 +63,13 @@ const Login = ({ login }) => {
       <Link className="login-button">
         <Button onClick={sendLogin}>Sign In</Button>
       </Link>
-      <div style={{ padding: "3rem 3rem", marginTop: "4rem" }}>
-        <p>Not a member yet? Sign up!</p>
-        <div style={{ paddingTop: "1.2rem" }}>
-          <Link className="register-button">Sign Up</Link>
-        </div>
+      <div style={{ padding: "3rem 3rem", marginTop: "1rem" }}>
+        <p>
+          Not a member yet?
+          <a href="/register" className="register-button">
+            Sign Up
+          </a>
+        </p>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import Author from "./pages/AuthorPage";
 import Mailer from "../src/components/Mailer/Mailer";
 import Login from "./components/Authorization/Login/Login";
 import Register from "./components/Authorization/Register/Register";
-import Converter from "./pages/ConverterPage";
+import Converter from "./components/Converter/ConverterPage";
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
