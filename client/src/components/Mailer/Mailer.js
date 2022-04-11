@@ -38,6 +38,8 @@ const Mailer = () => {
     <div className="container">
       <div className="support-title">
         <b>Please check out our F.A.Q. below before contacting.</b>
+      </div>
+      <div>
         <div className="help-button">
           <Button variant="contained" onClick={handleClickOpen}>
             frequently asked questions

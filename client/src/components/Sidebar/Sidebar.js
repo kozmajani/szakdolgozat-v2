@@ -8,11 +8,18 @@ import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
 
 const Nav = styled.div`
+  align-items: center;
   background: #0f0f0f;
   height: 80px;
   width: 100%;
   display: flex;
   box-shadow: 2px 0px 10px 10px rgba(0, 0, 0, 0.9);
+  position: fixed;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 const NavBars = styled(Link)`
@@ -30,13 +37,16 @@ const NavIcon = styled(Link)`
 `;
 
 export const NavMenu = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
-  margin-right: 0px;
+  margin: 10px;
   text-decoration: none;
+  justify-content: space-between;
+
   @media screen and (max-width: 768px) {
     width: 100%;
-    justify-content: space-between;
+    display: flex;
   }
 `;
 
@@ -106,7 +116,7 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
-const Sidebar = ({ loggedIn, logout }) => {
+const Sidebar = ({ token }) => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -115,27 +125,26 @@ const Sidebar = ({ loggedIn, logout }) => {
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
         <div>
-          <Nav className="topnav">
+          <Nav>
             <NavMenu>
-              {loggedIn ? (
+              {token ? (
                 <>
                   <>
                     <NavBars to="#">
                       <FaIcons.FaBars onClick={showSidebar} />
                     </NavBars>
                   </>
-                  <NavBtnLink to="/login" onClick={logout}>
-                    Sign Out
-                  </NavBtnLink>
+                  <NavIcon to="/profile" className="profile-icon">
+                    <AiIcons.AiOutlineUser />
+                  </NavIcon>
                 </>
               ) : (
                 <>
-                  <NavBtn>
-                    <NavBtnLink to="/login">Sign In</NavBtnLink>
-                  </NavBtn>
-                  <NavLink to="/register">Be a member</NavLink>
                   <NavIcon to="/">
                     <AiIcons.AiFillHome />
+                  </NavIcon>
+                  <NavIcon to="/login" className="profile-icon">
+                    <AiIcons.AiOutlineUser />
                   </NavIcon>
                 </>
               )}

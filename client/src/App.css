@@ -7,10 +7,6 @@
   font-family: "Lato", sans-serif;
 }
 
-@media screen and (max-width: 768px) {
-
-}
-
 .title {
   padding-top: 6.5rem;
   display: flex;
@@ -34,17 +30,15 @@
   justify-content: center;
   font-size: 1.2rem;
 }
-
-.topnav {
-  width: 100%;
+.profile-icon{
   display: flex;
-  padding: 15px;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 1.2rem;
-  position: fixed;
 }
 
+@media screen and (max-width: 768px) {
+  .profile-icon{
+    display: flex;
+  }
+}
 
 .a:link{
   text-decoration: none;

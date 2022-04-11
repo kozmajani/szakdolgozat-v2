@@ -4,13 +4,13 @@ import Alert from "@material-ui/lab/Alert";
 import { FormControl, InputLabel, Input, Button } from "@material-ui/core";
 import "./Login.css";
 
-const Login = ({ login }) => {
+export default function Login({ login }) {
   const history = useHistory();
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
 
-  let sendLogin = (e) => {
+  const sendLogin = (e) => {
     e.preventDefault();
     const loginUser = { name, password };
     fetch("http://localhost:9000/user/login", {
@@ -66,13 +66,11 @@ const Login = ({ login }) => {
       <div style={{ padding: "3rem 3rem", marginTop: "1rem" }}>
         <p>
           Not a member yet?
-          <a href="/register" className="register-button">
-            Sign Up
-          </a>
+          <Link className="register-button" to={"/register"}>
+            <Button>Sign Up</Button>
+          </Link>
         </p>
       </div>
     </div>
   );
-};
-
-export default Login;
+}
