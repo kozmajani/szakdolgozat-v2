@@ -1,9 +1,13 @@
 import "./header.css";
+import abscura from "../../images/abscura.png";
 
 const Header = () => {
   return (
     <div class="header">
-      <h1>FFmpeg Video Converter</h1>
+      <div>
+        <img src={abscura} alt="Logo" width="100px" />
+      </div>
+      <div className="abscura-title">abscura.</div>
     </div>
   );
 };

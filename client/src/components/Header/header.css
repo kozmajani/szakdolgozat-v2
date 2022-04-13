@@ -1,15 +1,25 @@
 .header {
-    font-size: 1.5rem;
     padding: 40px;
     padding-top: 120px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background: #1abc9c;
     color: white;
     border-bottom: 10px solid rgb(65, 65, 65);
+
+    box-shadow: inset 0px -5px 21px -4px #000000;
 }
 
-@media screen and (max-width: 1280px) {
-    .header{
-        font-size: 1rem;
-    }
+.gomb {
+    position:fixed;
+    bottom: 0;
+}
+
+.abscura-title{
+    font-style: italic;
+    text-transform: lowercase;
+    font-size: 3rem;
+    text-shadow: 6px 4px 8px rgba(0,0,0,1);
 }
