@@ -16,13 +16,13 @@ import Profile from "./components/Profile/Profile";
 export default function App() {
   const [token, setToken] = useState(false);
 
-  const login = () => {
+  const authorization = () => {
     setToken(true);
     sessionStorage.setItem("logged-in", JSON.stringify(!token));
   };
   const logout = () => {
     setToken(false);
-    sessionStorage.setItem("logged-in", JSON.stringify(!token));
+    sessionStorage.removeItem("logged-in");
   };
   if (token) {
     return (
@@ -41,7 +41,7 @@ export default function App() {
               <Profile token={token} logout={logout} />
             </Route>
             <Route path="/login">
-              <Login login={login} />
+              <Login authorization={authorization} />
             </Route>
             <Route path="/register" exact component={Register} />
           </Switch>
@@ -60,7 +60,7 @@ export default function App() {
             <Route path="/home" exact component={Home} />
             <Route path="/support" exact component={Mailer} />
             <Route path="/login">
-              <Login login={login} />
+              <Login authorization={authorization} />
             </Route>
             <Route path="/register" exact component={Register} />
           </Switch>

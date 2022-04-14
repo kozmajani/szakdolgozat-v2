@@ -7,9 +7,12 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
+.App{
+  height: 100%;
+}
+
 .wrapper {
   min-height: 80rem;
-
 }
 
 .help-button {

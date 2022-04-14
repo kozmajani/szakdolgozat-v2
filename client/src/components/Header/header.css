@@ -12,14 +12,10 @@
     box-shadow: inset 0px -5px 21px -4px #000000;
 }
 
-.gomb {
-    position:fixed;
-    bottom: 0;
-}
 
 .abscura-title{
-    font-style: italic;
+    font-style:italic;
     text-transform: lowercase;
     font-size: 3rem;
-    text-shadow: 6px 4px 8px rgba(0,0,0,1);
+    text-shadow: 6px -2px 8px rgba(0,0,0,1);
 }

@@ -56,7 +56,7 @@ const Mailer = () => {
             <DialogContent>
               <DialogContentText id="alert-dialog-description">
                 <li>Question #1 </li>
-                <p>
+                <div>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -65,9 +65,9 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </p>
+                </div>
                 <li>Question #2</li>
-                <p>
+                <div>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -76,9 +76,9 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </p>
+                </div>
                 <li>Question #3</li>
-                <p>
+                <div>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -87,9 +87,9 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </p>
+                </div>
                 <li>Question #4</li>
-                <p>
+                <div>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -98,9 +98,9 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </p>
+                </div>
                 <li>Question #5</li>
-                <p>
+                <div>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -109,11 +109,7 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </p>
-                <p>
-                  <br />
-                  To register a user click <a href="/register">here</a>!
-                </p>
+                </div>
               </DialogContentText>
             </DialogContent>
             <DialogActions>
@@ -128,53 +124,60 @@ const Mailer = () => {
         <div className="support-title">Contact us via e-mail!</div>
         <form onSubmit={sendEmail}>
           <table>
-            <td className="label-name">Name</td>
-            <td>
-              <input
-                className="input"
-                maxLength="30"
-                size="30"
-                type="text"
-                name="name"
-                required
-                placeholder="e.g. Teszt Elek"
-              />
-            </td>
-            <tr>
-              <td className="label-name">E-mail</td>
-              <td>
-                <input
-                  className="input"
-                  maxLength="30"
-                  size="30"
-                  type="email"
-                  name="user_email"
-                  required
-                  placeholder="email@domain.com"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td className="label-name">Message</td>
-
-              <td>
-                <textarea
-                  className="textarea"
-                  name="message"
-                  rows="5"
-                  required
-                  placeholder="Type here"
-                  cols="31"
-                  maxLength="400"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                <input className="submit-button" type="submit" value="Submit" />
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td className="label-name">Name</td>
+                <td>
+                  <input
+                    className="input"
+                    maxLength="30"
+                    size="30"
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="e.g. Teszt Elek"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="label-name">E-mail</td>
+                <td>
+                  <input
+                    className="input"
+                    maxLength="30"
+                    size="30"
+                    type="email"
+                    name="user_email"
+                    required
+                    placeholder="email@domain.com"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="label-name">Message</td>
+                <td>
+                  <textarea
+                    className="textarea"
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="Type here"
+                    cols="31"
+                    maxLength="400"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <input
+                    className="submit-button"
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </tr>
+            </tbody>
           </table>
         </form>
       </div>

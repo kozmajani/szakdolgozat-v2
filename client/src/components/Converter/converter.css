@@ -11,8 +11,8 @@
 .previews {
     color: rgb(70, 70, 70);
     border: 8px solid rgb(65, 65, 65);
-    width: 960px;
-    height: 480px;
+    width: 768px;
+    height: 384px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -36,6 +36,7 @@
 }
 
 .videoplayer {
+    z-index: -1;
     border: 8px solid rgb(65, 65, 65);
     box-shadow: 2px 0px 10px 10px rgba(0, 0, 0, 0.9);
 }
@@ -63,8 +64,8 @@
     font-size: 1.5rem;
     color: rgb(70, 70, 70);
     border: 8px solid rgb(65, 65, 65);
-    width: 960px;
-    height: 480px;
+    width: 768px;
+    height: 384px;
     justify-content: center;
     align-items: center;
     text-align: center;

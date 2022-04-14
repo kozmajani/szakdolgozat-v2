@@ -4,7 +4,7 @@ import Alert from "@material-ui/lab/Alert";
 import { FormControl, InputLabel, Input, Button } from "@material-ui/core";
 import "./Login.css";
 
-export default function Login({ login }) {
+export default function Login({ authorization }) {
   const history = useHistory();
   const [name, setName] = useState("");
   const [error, setError] = useState("");
@@ -21,7 +21,7 @@ export default function Login({ login }) {
       body: JSON.stringify(loginUser),
     }).then((res) => {
       if (res.status === 200) {
-        login();
+        authorization();
         history.push("/");
       } else if (res.status === 401) {
         setError("Incorrect username or password!");

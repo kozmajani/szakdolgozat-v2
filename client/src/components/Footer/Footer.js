@@ -4,7 +4,7 @@ import me_logo from "../../images/me_logo.png";
 
 const Footer = () => {
   return (
-    <div class="footer">
+    <div className="footer">
       <a href="https://github.com/kozmajani" target="_blank" rel="noreferrer">
         <img className="footerimg" src={logo} alt="Logo" />
       </a>
