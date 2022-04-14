@@ -5,22 +5,67 @@ This project was bootstrapped with Create React App.
 
 | **The application's current features**  | **Yet to develop features** |
 | -------------: | :------------- |
-| Functioning side and top navigation bars (+CSS)  | Session tokens |
-| Path / URL control  | Video player and converter  |
-| Interface switching  |  |
+| Functioning side and top navigation bars (+CSS)  | Home Page |
+| Path / URL control  | About Page |
+| Interface switching  | SB fine tunes |
 | Register / Login pages + functions with authorization  |  |
 | MongoDB database connecton for user data  |   |
 | User mailing system towards support team  |   |
+| Session tokens |   |
+| Video player and converter  |   |
+
 
 ## Dependencies
-```npm install ffmpeg```
-```npm install fluent-ffmpeg```
-```npm install @material-ui/core```
-```npm install @material-ui/core```
+>DEPENDENCY INSTALLATION example
+```
+\client
+npm install @ffmpeg/ffmpeg
+```
+# Server dependencies
+\server
+```
+(package.json)
+"dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
+    "http-proxy-middleware": "^2.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.29",
+    "socket.io": "^2.3.0"
+  }
+ ```
+# Client dependencies
+\client
+```
+(package.json)
+"dependencies": {
+    "@ffmpeg/ffmpeg": "^0.9.8",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "body-parser": "^1.19.0",
+    "emailjs-com": "^3.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "nodemon": "^2.0.14",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-dropzone": "^12.0.5",
+    "react-icons": "^4.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "styled-components": "^5.2.1",
+    "web-vitals": "^0.2.4"
+  }
+  +
+  @material-ui/core
+```
 
 
-
-### To Run it:
+### To start it in developement mode:
 >```cd server```
 >
 >```npm install```
