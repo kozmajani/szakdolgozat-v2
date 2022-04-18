@@ -1,5 +1,10 @@
 # SZAKDOLGOZAT
 
+## abscura.
+![mini](https://user-images.githubusercontent.com/67963987/163885713-2667f592-ba0e-4a36-8cd2-35e04322f913.png)
+
+
+
 This project was bootstrapped with Create React App.
 >NOTE: To run the app in development mode Node.js v14.16.1 ( including npm 6.14.12 ) is required.
 
