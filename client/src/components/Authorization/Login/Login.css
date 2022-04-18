@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height:30rem;
+  height: 37.4rem;
 }
 
 .username-container,
@@ -16,7 +16,6 @@
   margin-top: 1rem;
   -webkit-appearance: none;
   appearance: none;
-  border: 1px solid rgb(0, 0, 0);
   border-radius: 0.7em;
   color: rgb(0, 0, 0);
   cursor: pointer;

@@ -64,6 +64,14 @@ export default function Register() {
           Sign Up
         </Button>
       </Link>
+      <div style={{ padding: "3rem 3rem", marginTop: "1rem" }}>
+        <p>
+          Already a member?
+          <Link className="register-button" to={"/login"}>
+            <Button>Sign In</Button>
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }

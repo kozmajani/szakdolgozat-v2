@@ -14,6 +14,8 @@ function Converter() {
 
   const [outputType, setOutputType] = useState("");
   const [outputFormat, setOutputFormat] = useState("");
+  const [outputLength, setOutputLength] = useState("2");
+  const [inputFormat, setInputFormat] = useState("mp4");
 
   const load = async () => {
     await ffmpeg.load();
@@ -24,15 +26,31 @@ function Converter() {
     load();
   }, []);
 
-  function getSelectValue() {
+  function setInput(file) {
+    setVideo(file);
+    getInputExtension(file);
+    console.log(inputFormat);
+  }
+
+  function getInputExtension(filename) {
+    var parts = filename.toString().split(".");
+    setInputFormat(`${parts[parts.length - 1]}`);
+  }
+
+  function getTypeValue() {
     setOutputFormat(document.getElementById("types").value);
     console.log(document.getElementById("types").value);
 
-    if (outputFormat == "gif") {
+    if (document.getElementById("types").value === "gif") {
       setOutputType("image");
     } else {
       setOutputType("video");
     }
+  }
+
+  function getLengthValue() {
+    setOutputLength(document.getElementById("length").value);
+    console.log(document.getElementById("length").value);
   }
 
   const convertTo = async () => {
@@ -40,14 +58,14 @@ function Converter() {
 
     await ffmpeg.run(
       "-i", //input
-      "input.mp4", //input name
+      `input.${inputFormat}`, //input-name.inpformat
       "-t",
-      "2.5", //length
+      `${outputLength}`, //length(s)
       "-ss", //starting second
-      "2.2",
-      "-f", //format
-      `${outputFormat}`,
-      `out.${outputFormat}`
+      "2",
+      "-f", //force format
+      `${outputFormat}`, //outformat
+      `out.${outputFormat}` //output-name.outpformat
     );
 
     const data = ffmpeg.FS("readFile", `out.${outputFormat}`);
@@ -67,31 +85,47 @@ function Converter() {
         <h1>CONVERTER</h1>
       </div>
       <div>
-        {video ? (
-          <video
-            className="videoplayer"
-            controls
-            width="768"
-            src={URL.createObjectURL(video)}
-          ></video>
-        ) : (
-          <div className="previews">
-            <input
-              type="file"
-              onChange={(e) => setVideo(e.target.files?.item(0))}
-            />
-          </div>
-        )}
+        <div className="input-file">
+          <input
+            style={{ width: "100%" }}
+            type="file"
+            onChange={(e) => setInput(e.target.files?.item(0))}
+          />
+        </div>
+        <div>
+          {video ? (
+            <video
+              className="videoplayer"
+              controls
+              width="768"
+              src={URL.createObjectURL(video)}
+            ></video>
+          ) : (
+            <div className="previews">Preview</div>
+          )}
+        </div>
       </div>
       <div>
-        <select id="types" onChange={getSelectValue}>
-          <option value="" selected>
-            --CONVERT TO--
+        <select id="types" className="types-dropdown" onChange={getTypeValue}>
+          <option value="" defaultValue={""}>
+            CONVERT TO
           </option>
+          <option value="gif">GIF</option>
           <option value="mp4">MP4</option>
           <option value="avi">AVI</option>
           <option value="webm">WEBM</option>
-          <option value="gif">GIF</option>
+        </select>
+        <select
+          id="length"
+          className="length-dropdown"
+          onChange={getLengthValue}
+        >
+          <option value="" defaultValue={""}>
+            LENGTH (s)
+          </option>
+          <option value="2">2 s</option>
+          <option value="4">4 s</option>
+          <option value="8">8 s</option>
         </select>
       </div>
       <div style={{ padding: "1.3rem" }}>
@@ -105,14 +139,14 @@ function Converter() {
             <img
               className="videoplayer"
               src={output}
-              width="768"
+              width="720"
               alt="result-file"
             />
           ) : (
             <video
               className="videoplayer"
               controls
-              width="768"
+              width="720"
               src={output}
             ></video>
           )

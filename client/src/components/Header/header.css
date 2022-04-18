@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: #1abc9c;
+    background: #138b73;
     color: white;
     border-bottom: 10px solid rgb(65, 65, 65);
 
@@ -13,9 +13,14 @@
 }
 
 
+.abscura-logo{
+    filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.7))
+}
+
 .abscura-title{
+    z-index: 1;
     font-style:italic;
     text-transform: lowercase;
     font-size: 3rem;
-    text-shadow: 6px -2px 8px rgba(0,0,0,1);
+    text-shadow: 6px 6px 8px rgba(0, 0, 0, 0.7);
 }
