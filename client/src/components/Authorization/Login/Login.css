@@ -4,6 +4,8 @@
   justify-content: center;
   flex-direction: column;
   height: 37.4rem;
+  background-color: rgb(212, 212, 212);
+
 }
 
 .username-container,

@@ -1,96 +1,65 @@
 import React from "react";
+import converting from "../images/converting.jpg";
+import reactlogo from "../images/reactlogo.png";
+
 import "./css/homepage.css";
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-}
+import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div>
+    <div className="main-div">
       <div>
+        <h2>SIMPLE VIDEO CONVERTING</h2>
+        <p>..for simple people</p>
+        <img
+          className="converting-img"
+          src={converting}
+          alt="converting"
+          width={"80%"}
+        ></img>
+      </div>
+      <div className="about-div">
+        <h1>
+          About <i>abscura.</i>
+        </h1>
         <div>
-          <h2>SIMPLE VIDEO CONVERTING</h2>
-          <p>..for simple people</p>
-        </div>
-        <div className="slideshow-container">
-          <div className="mySlides">
-            <div className="numbertext">1 / 4</div>
-            <img src="slider1.jpg" alt="converting" style={{ width: "100%" }} />
-            <div className="text">Converter</div>
+          Abscura was first developed in 2021 as a diploma thesis.
+          <div className="block">
+            <div className="page-logo">
+              <a
+                href="https://en.reactjs.org/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={reactlogo} width="50px" alt="react"></img>
+              </a>
+            </div>
+            <div style={{ padding: "1em" }}>
+              The project was bootstrapped and developed with ReactJS.
+            </div>
           </div>
-
-          <div className="mySlides">
-            <div className="numbertext">2 / 4</div>
-            <img src="slider2.jpg" alt="author" style={{ width: "100%" }} />
-            <div className="text">About</div>
+          <div>
+            The main functionaility of this page depends on{" "}
+            <a href="https://ffmpeg.org/">FFmpeg</a>, which lets you convert
+            your videos, without using our servers.
           </div>
-
-          <div className="mySlides">
-            <div className="numbertext">3 / 4</div>
-            <img src="slider3.jpg" alt="asd3" style={{ width: "100%" }} />
-            <div className="text">Author</div>
+          <div>
+            To use the application, you must <i>log in</i> or <i>register</i> a
+            user.
           </div>
-
-          <div className="mySlides">
-            <div className="numbertext">4 / 4</div>
-            <img src="slider3.jpg" alt="asd3" style={{ width: "100%" }} />
-            <div className="text">Author</div>
+          <div>
+            Which you can do
+            <Link className="tologin-button" to={"/login"}>
+              <Button>HERE!</Button>
+            </Link>
           </div>
-
-          <button className="prev" onClick={plusSlides(-1)}>
-            ❮
-          </button>
-          <button className="next" onClick={plusSlides(1)}>
-            ❯
-          </button>
         </div>
-
-        <div style={{ textAlign: "center" }}>
-          <span className="dot" onClick={currentSlide(1)}></span>
-          <span className="dot" onClick={currentSlide(2)}></span>
-          <span className="dot" onClick={currentSlide(3)}></span>
-          <span className="dot" onClick={currentSlide(4)}></span>
-        </div>
-        <div>
-          <h2>Convert your videos easily and freely</h2>
-          <h5>Since 2021..</h5>
-          <div>Image</div>
-          <p>Some text..</p>
-          <p>
-            Sunt in culpa qui officia deserunt mollit anim id est laborum
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco.
-          </p>
-        </div>
+      </div>
+      <div>
+        <Link className="feedback-button" to={"/support"}>
+          <Button>Send us your feedback!</Button>
+        </Link>
       </div>
     </div>
   );

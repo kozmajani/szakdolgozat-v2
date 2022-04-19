@@ -44,7 +44,6 @@ export const NavMenu = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin: 10px;
   text-decoration: none;
   justify-content: space-between;
 

@@ -19,9 +19,9 @@ export const SidebarData = [
         icon: <AiIcons.AiFillHome />,
       },
       {
-        title: "About",
-        path: "/about",
-        icon: <IoIcons.IoIosPaper />,
+        title: "Author",
+        path: "/author",
+        icon: <FaIcons.FaUserTie />,
       },
     ],
   },
@@ -31,11 +31,6 @@ export const SidebarData = [
     icon: <FaIcons.FaBuffer />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-  },
-  {
-    title: "Author",
-    path: "/author",
-    icon: <FaIcons.FaUserTie />,
   },
 
   {

@@ -1,10 +1,11 @@
 .converter-container{
     display: flex;
     flex-direction: column;
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(46, 46, 46);
     align-content: space-around;
     align-items: center;
-    min-height: 80rem;
+    height: 100%;
+    min-height: 65rem;
 }
 
 .previews {
