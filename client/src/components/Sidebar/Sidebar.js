@@ -8,6 +8,7 @@ import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
 
 const Nav = styled.div`
+  z-index: 2;
   align-items: center;
   background: #0f0f0f;
   height: 80px;
@@ -37,6 +38,9 @@ const NavIcon = styled(Link)`
 `;
 
 export const NavMenu = styled.div`
+  z-index: 2;
+
+  position: fixed;
   width: 100%;
   display: flex;
   align-items: center;
@@ -124,33 +128,31 @@ const Sidebar = ({ token }) => {
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div>
-          <Nav>
-            <NavMenu>
-              {token ? (
+        <Nav>
+          <NavMenu>
+            {token ? (
+              <>
                 <>
-                  <>
-                    <NavBars to="#">
-                      <FaIcons.FaBars onClick={showSidebar} />
-                    </NavBars>
-                  </>
-                  <NavIcon to="/profile" className="profile-icon">
-                    <AiIcons.AiOutlineUser />
-                  </NavIcon>
+                  <NavBars to="#">
+                    <FaIcons.FaBars onClick={showSidebar} />
+                  </NavBars>
                 </>
-              ) : (
-                <>
-                  <NavIcon to="/">
-                    <AiIcons.AiFillHome />
-                  </NavIcon>
-                  <NavIcon to="/login" className="profile-icon">
-                    <AiIcons.AiOutlineUser />
-                  </NavIcon>
-                </>
-              )}
-            </NavMenu>
-          </Nav>
-        </div>
+                <NavIcon to="/profile" className="profile-icon">
+                  <AiIcons.AiOutlineUser />
+                </NavIcon>
+              </>
+            ) : (
+              <>
+                <NavIcon to="/">
+                  <AiIcons.AiFillHome />
+                </NavIcon>
+                <NavIcon to="/login" className="profile-icon">
+                  <AiIcons.AiOutlineUser />
+                </NavIcon>
+              </>
+            )}
+          </NavMenu>
+        </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
             <NavBars to="#">

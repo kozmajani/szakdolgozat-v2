@@ -63,11 +63,19 @@ export default function Login({ authorization }) {
       <Link className="login-button">
         <Button onClick={sendLogin}>Sign In</Button>
       </Link>
-      <div style={{ padding: "3rem 3rem", marginTop: "1rem" }}>
+      <div style={{ padding: "1rem" }}>
         <p>
           Not a member yet?
           <Link className="register-button" to={"/register"}>
             <Button>Sign Up</Button>
+          </Link>
+        </p>
+      </div>
+      <div>
+        <p>
+          Got a question?
+          <Link className="register-button" to={"/support"}>
+            <Button>Contact us</Button>
           </Link>
         </p>
       </div>

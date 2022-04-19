@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
+import { Alert, AlertTitle } from "@material-ui/lab";
 import "./converter.css";
 
 const ffmpeg = createFFmpeg({
@@ -11,31 +12,28 @@ function Converter() {
   const [ready, setReady] = useState(false);
   const [video, setVideo] = useState();
   const [output, setOutput] = useState();
+  const [error, setError] = useState("");
 
   const [outputType, setOutputType] = useState("");
   const [outputFormat, setOutputFormat] = useState("");
   const [outputLength, setOutputLength] = useState("2");
-  const [inputFormat, setInputFormat] = useState("mp4");
 
   const load = async () => {
-    await ffmpeg.load();
-    setReady(true);
+    try {
+      if (ffmpeg.isLoaded(true)) {
+        setReady(true);
+      } else {
+        await ffmpeg.load();
+        setReady(true);
+      }
+    } catch (e) {
+      alert(e.message);
+    }
   };
 
   useEffect(() => {
     load();
   }, []);
-
-  function setInput(file) {
-    setVideo(file);
-    getInputExtension(file);
-    console.log(inputFormat);
-  }
-
-  function getInputExtension(filename) {
-    var parts = filename.toString().split(".");
-    setInputFormat(`${parts[parts.length - 1]}`);
-  }
 
   function getTypeValue() {
     setOutputFormat(document.getElementById("types").value);
@@ -54,29 +52,33 @@ function Converter() {
   }
 
   const convertTo = async () => {
-    ffmpeg.FS("writeFile", "input.mp4", await fetchFile(video));
+    try {
+      ffmpeg.FS("writeFile", "input.mp4", await fetchFile(video));
 
-    await ffmpeg.run(
-      "-i", //input
-      `input.${inputFormat}`, //input-name.inpformat
-      "-t",
-      `${outputLength}`, //length(s)
-      "-ss", //starting second
-      "2",
-      "-f", //force format
-      `${outputFormat}`, //outformat
-      `out.${outputFormat}` //output-name.outpformat
-    );
+      await ffmpeg.run(
+        "-i", //input
+        "input.mp4", //input-name.inpformat
+        "-t",
+        `${outputLength}`, //length(s)
+        "-ss", //starting second
+        "2",
+        "-f", //force format
+        `${outputFormat}`, //outformat
+        `out.${outputFormat}` //output-name.outpformat
+      );
 
-    const data = ffmpeg.FS("readFile", `out.${outputFormat}`);
+      const data = ffmpeg.FS("readFile", `out.${outputFormat}`);
 
-    const url = URL.createObjectURL(
-      new Blob([data.buffer], { type: `${outputType}/${outputFormat}` })
-    );
+      const url = URL.createObjectURL(
+        new Blob([data.buffer], { type: `${outputType}/${outputFormat}` })
+      );
 
-    setOutput(url);
-    console.log(url, `out.${outputFormat}`, `${outputType}`);
-    console.log(document.getElementById("types").value);
+      setOutput(url);
+      console.log(url, `out.${outputFormat}`, `${outputType}`);
+      console.log(document.getElementById("types").value);
+    } catch (e) {
+      setError("Choose an output format!");
+    }
   };
 
   return ready ? (
@@ -89,7 +91,7 @@ function Converter() {
           <input
             style={{ width: "100%" }}
             type="file"
-            onChange={(e) => setInput(e.target.files?.item(0))}
+            onChange={(e) => setVideo(e.target.files?.item(0))}
           />
         </div>
         <div>
@@ -106,13 +108,27 @@ function Converter() {
         </div>
       </div>
       <div>
+        {error !== "" ? (
+          <Alert
+            severity="error"
+            onClose={() => {
+              setError("");
+            }}
+          >
+            <AlertTitle>
+              <strong>Error</strong>
+            </AlertTitle>
+            You must choose an <strong>OUTPUT</strong> format!
+          </Alert>
+        ) : null}
+
         <select id="types" className="types-dropdown" onChange={getTypeValue}>
           <option value="" defaultValue={""}>
             CONVERT TO
           </option>
           <option value="gif">GIF</option>
           <option value="mp4">MP4</option>
-          <option value="avi">AVI</option>
+          <option value="mov">MOV</option>
           <option value="webm">WEBM</option>
         </select>
         <select
