@@ -8,11 +8,11 @@
 This project was bootstrapped with Create React App.
 >NOTE: To run the app in development mode Node.js v14.16.1 ( including npm 6.14.12 ) is required.
 
-| **The application's current features**  | **Yet to develop features** |
+| **The application's current features**  | **Yet to develop** |
 | -------------: | :------------- |
-| Functioning side and top navigation bars (+CSS)  | Home Page |
-| Path / URL control  | About Page |
-| Interface switching  | SB fine tunes |
+| Functioning side and top navigation bars (+CSS)  | Logout section |
+| Path / URL control  | SB fine tunes  |
+| Interface switching  |  |
 | Register / Login pages + functions with authorization  |  |
 | MongoDB database connecton for user data  |   |
 | User mailing system towards support team  |   |
