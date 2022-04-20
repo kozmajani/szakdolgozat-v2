@@ -10,7 +10,6 @@ import Mailer from "../src/components/Mailer/Mailer";
 import Login from "./components/Authorization/Login/Login";
 import Register from "./components/Authorization/Register/Register";
 import Converter from "./components/Converter/ConverterPage";
-import Profile from "./components/Profile/Profile";
 
 export default function App() {
   const [token, setToken] = useState(false);
@@ -35,9 +34,6 @@ export default function App() {
             <Route path="/converter" exact component={Converter} />
             <Route path="/author" exact component={Author} />
             <Route path="/support" exact component={Mailer} />
-            <Route path="/profile">
-              <Profile token={token} logout={logout} />
-            </Route>
             <Route path="/login">
               <Login authorization={authorization} />
             </Route>

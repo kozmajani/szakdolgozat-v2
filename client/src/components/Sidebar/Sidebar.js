@@ -24,17 +24,20 @@ const Nav = styled.div`
 `;
 
 const NavBars = styled(Link)`
-  padding: 1rem;
-  font-size: 2.3rem;
+  padding: 1.5rem;
+  font-size: 2.5rem;
   display: grid;
   text-align: left;
   align-items: center;
 `;
 
 const NavIcon = styled(Link)`
-  padding: 1rem;
-  font-size: 2.3rem;
+  padding: 1.5rem;
+  font-size: 2.5rem;
   display: flex;
+  text-decoration: none;
+  color: white;
+  align-items: center;
 `;
 
 export const NavMenu = styled.div`
@@ -119,7 +122,7 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
-const Sidebar = ({ token }) => {
+const Sidebar = ({ token, logout }) => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -136,8 +139,9 @@ const Sidebar = ({ token }) => {
                     <FaIcons.FaBars onClick={showSidebar} />
                   </NavBars>
                 </>
-                <NavIcon to="/profile" className="profile-icon">
-                  <AiIcons.AiOutlineUser />
+                <NavIcon to="/" onClick={logout}>
+                  <h6>Logout</h6>
+                  <AiIcons.AiOutlineLogout />
                 </NavIcon>
               </>
             ) : (
