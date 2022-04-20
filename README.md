@@ -10,14 +10,16 @@ This project was bootstrapped with Create React App.
 
 | **The application's current features**  | **Yet to develop** |
 | -------------: | :------------- |
-| Functioning side and top navigation bars (+CSS)  | Logout section |
-| Path / URL control  | SB fine tunes  |
+| Functioning side and top navigation bars |  |
+| Path / URL control  |  |
 | Interface switching  |  |
 | Register / Login pages + functions with authorization  |  |
 | MongoDB database connecton for user data  |   |
-| User mailing system towards support team  |   |
+| Mailing system towards support team  |   |
 | Session tokens |   |
+| Token functionalities  |   |
 | Video player and converter  |   |
+| Responsive view  |   |
 
 
 ## Dependencies
