@@ -15,12 +15,21 @@ export default function App() {
   const [token, setToken] = useState(false);
 
   const authorization = () => {
-    setToken(true);
-    sessionStorage.setItem("logged-in", JSON.stringify(!token));
+    try {
+      setToken(true);
+      sessionStorage.setItem("logged-in", JSON.stringify(!token));
+    } catch (e) {
+      alert(e.message);
+    }
   };
+
   const logout = () => {
-    setToken(false);
-    sessionStorage.removeItem("logged-in");
+    try {
+      setToken(false);
+      sessionStorage.removeItem("logged-in");
+    } catch (e) {
+      alert(e.message);
+    }
   };
   if (token) {
     return (
