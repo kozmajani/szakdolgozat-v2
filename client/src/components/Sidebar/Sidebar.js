@@ -6,6 +6,12 @@ import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 const Nav = styled.div`
   z-index: 2;
@@ -25,6 +31,13 @@ const Nav = styled.div`
 
 const NavBars = styled(Link)`
   padding: 1.5rem;
+  font-size: 2.5rem;
+  display: grid;
+  text-align: left;
+  align-items: center;
+`;
+
+const NavCircle = styled(Link)`
   font-size: 2.5rem;
   display: grid;
   text-align: left;
@@ -123,6 +136,21 @@ const SidebarWrap = styled.div`
 `;
 
 const Sidebar = ({ token, logout }) => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleLogout = () => {
+    handleClose();
+    logout();
+  };
+
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -139,10 +167,33 @@ const Sidebar = ({ token, logout }) => {
                     <FaIcons.FaBars onClick={showSidebar} />
                   </NavBars>
                 </>
-                <NavIcon to="/" onClick={logout}>
-                  <h6>Logout</h6>
-                  <AiIcons.AiOutlineLogout />
-                </NavIcon>
+                <div className="help-button">
+                  <Button onClick={handleClickOpen}>
+                    <NavCircle>
+                      <AiIcons.AiOutlineLogout />
+                    </NavCircle>
+                  </Button>
+                  <Dialog open={open} onClose={handleClose}>
+                    <DialogTitle>{"Are you sure?"}</DialogTitle>
+                    <DialogContent>
+                      <DialogContentText>
+                        <div>This action will log you out!</div>
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Link className="logouter" to={"/"}>
+                        <Button onClick={handleLogout} color="inherit">
+                          SURE
+                        </Button>
+                      </Link>
+                      <Link className="logouter">
+                        <Button onClick={handleClose} color="inherit">
+                          CANCEL
+                        </Button>
+                      </Link>
+                    </DialogActions>
+                  </Dialog>
+                </div>
               </>
             ) : (
               <>

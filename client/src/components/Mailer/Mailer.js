@@ -44,14 +44,9 @@ const Mailer = () => {
           <Button variant="contained" onClick={handleClickOpen}>
             frequently asked questions
           </Button>
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
+          <Dialog open={open} onClose={handleClose}>
             <DialogTitle id="alert-dialog-title">
-              {"frequently asked questions"}
+              {"Frequently asked questions"}
             </DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-description">
@@ -113,7 +108,7 @@ const Mailer = () => {
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose} color="primary" autoFocus>
+              <Button onClick={handleClose} color="inherit">
                 GOT IT!
               </Button>
             </DialogActions>

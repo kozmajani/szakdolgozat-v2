@@ -16,6 +16,7 @@ function Converter() {
 
   const [outputType, setOutputType] = useState("");
   const [outputFormat, setOutputFormat] = useState("");
+  const [outputStart, setOutputStart] = useState("0");
   const [outputLength, setOutputLength] = useState("2");
 
   const load = async () => {
@@ -46,6 +47,11 @@ function Converter() {
     }
   }
 
+  function getStartValue() {
+    setOutputStart(document.getElementById("start").value);
+    console.log("start at:" + document.getElementById("start").value);
+  }
+
   function getLengthValue() {
     setOutputLength(document.getElementById("length").value);
     console.log(document.getElementById("length").value);
@@ -61,7 +67,7 @@ function Converter() {
         "-t",
         `${outputLength}`, //length(s)
         "-ss", //starting second
-        "2",
+        `${outputStart}`,
         "-f", //force format
         `${outputFormat}`, //outformat
         `out.${outputFormat}` //output-name.outpformat
@@ -130,6 +136,14 @@ function Converter() {
           <option value="mp4">MP4</option>
           <option value="mov">MOV</option>
           <option value="webm">WEBM</option>
+        </select>
+        <select id="start" className="start-dropdown" onChange={getStartValue}>
+          <option value="" defaultValue={""}>
+            Start at (s)
+          </option>
+          <option value="0">0 (start)</option>
+          <option value="2">2 s</option>
+          <option value="4">4 s</option>
         </select>
         <select
           id="length"

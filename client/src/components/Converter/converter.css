@@ -121,7 +121,6 @@
     background-color: rgb(99, 99, 99);
 }
 
-
 .length-dropdown{
     border-bottom-left-radius: 0.6em;
     border-bottom-right-radius: 0.6em;
@@ -133,5 +132,20 @@
 }
 
 .length-dropdown:hover{
+    background-color: rgb(99, 99, 99);
+}
+
+.start-dropdown{
+    border-bottom-left-radius: 0.6em;
+    border-bottom-right-radius: 0.6em;
+    color: white;
+    background-color: rgb(65, 65, 65);
+    font-size: 1.5rem;
+    font-style: normal;
+    padding: 10px;
+}
+
+
+.start-dropdown:hover{
     background-color: rgb(99, 99, 99);
 }

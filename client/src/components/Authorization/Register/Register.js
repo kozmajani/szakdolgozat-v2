@@ -40,11 +40,7 @@ export default function Register() {
         <InputLabel htmlFor="name" required>
           Username
         </InputLabel>
-        <Input
-          id="name"
-          onChange={(e) => setName(e.target.value)}
-          aria-describedby="my-helper-text"
-        />
+        <Input id="name" onChange={(e) => setName(e.target.value)} />
       </FormControl>
 
       <FormControl className="password-container">
@@ -56,13 +52,10 @@ export default function Register() {
           id="email"
           onChange={(e) => setPassword(e.target.value)}
           type="password"
-          aria-describedby="my-helper-text"
         />
       </FormControl>
       <Link className="register-button">
-        <Button color="grey" onClick={sendRegister}>
-          Sign Up
-        </Button>
+        <Button onClick={sendRegister}>Sign Up</Button>
       </Link>
       <div style={{ padding: "1rem" }}>
         <p>

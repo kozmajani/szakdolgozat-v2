@@ -41,11 +41,7 @@ export default function Login({ authorization }) {
         <InputLabel htmlFor="name" required>
           Username
         </InputLabel>
-        <Input
-          id="name"
-          onChange={(e) => setName(e.target.value)}
-          aria-describedby="my-helper-text"
-        />
+        <Input id="name" onChange={(e) => setName(e.target.value)} />
       </FormControl>
 
       <FormControl className="password-container">
@@ -56,7 +52,6 @@ export default function Login({ authorization }) {
           id="email"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
-          aria-describedby="my-helper-text"
         />
       </FormControl>
 
