@@ -31,6 +31,7 @@ export default function App() {
       alert(e.message);
     }
   };
+
   if (token) {
     return (
       <div className="App">

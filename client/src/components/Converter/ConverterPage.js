@@ -2,7 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 import { Alert, AlertTitle } from "@material-ui/lab";
+import * as AiIcons from "react-icons/ai";
 import "./converter.css";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
 
 const ffmpeg = createFFmpeg({
   log: true,
@@ -18,6 +22,17 @@ function Converter() {
   const [outputFormat, setOutputFormat] = useState("");
   const [outputStart, setOutputStart] = useState("0");
   const [outputLength, setOutputLength] = useState("2");
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickConvert = () => {
+    setOpen(true);
+    convertTo();
+  };
+
+  const handleFinish = () => {
+    setOpen(false);
+  };
 
   const load = async () => {
     try {
@@ -80,6 +95,7 @@ function Converter() {
       );
 
       setOutput(url);
+      handleFinish();
       console.log(url, `out.${outputFormat}`, `${outputType}`);
       console.log(document.getElementById("types").value);
     } catch (e) {
@@ -139,7 +155,7 @@ function Converter() {
         </select>
         <select id="start" className="start-dropdown" onChange={getStartValue}>
           <option value="" defaultValue={""}>
-            Start at (s)
+            START AT(s)
           </option>
           <option value="0">0 (start)</option>
           <option value="2">2 s</option>
@@ -159,26 +175,40 @@ function Converter() {
         </select>
       </div>
       <div style={{ padding: "1.3rem" }}>
-        <button className="convert-button" onClick={convertTo}>
+        <button className="convert-button" onClick={handleClickConvert}>
           CONVERT
         </button>
+        <Dialog open={open}>
+          <DialogContent>
+            <DialogContentText>
+              <div style={{ margin: "2rem" }}>
+                <div>
+                  <center>
+                    <h2>Converting...</h2>
+                    <h5>(this might take a while)</h5>
+                  </center>
+                </div>
+                <div className="rotate">
+                  <AiIcons.AiOutlineLoading />
+                </div>
+              </div>
+            </DialogContentText>
+          </DialogContent>
+        </Dialog>
       </div>
       <div>
         {output ? (
           outputType === "image" ? (
-            <img
-              className="videoplayer"
-              src={output}
-              width="720"
-              alt="result-file"
-            />
+            <a href={output} download>
+              <img
+                className="videoplayer"
+                src={output}
+                width="720"
+                alt="result-file"
+              />
+            </a>
           ) : (
-            <video
-              className="videoplayer"
-              controls
-              width="720"
-              src={output}
-            ></video>
+            <video className="videoplayer" src={output} width="720" controls />
           )
         ) : (
           <div className="results">Result</div>

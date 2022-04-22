@@ -5,7 +5,7 @@
     align-content: space-around;
     align-items: center;
     height: 100%;
-    min-height: 65rem;
+    min-height: 73rem;
 }
 
 .previews {
@@ -76,6 +76,24 @@
     box-shadow: 2px 0px 10px 10px rgba(0, 0, 0, 0.9);
 
 }
+
+.rotate{
+    position: relative;
+    margin: 3rem;
+    font-size: 3rem;
+    color: rgb(70, 70, 70);
+    animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
 
 .titles {
     background: rgb(50, 50, 50);

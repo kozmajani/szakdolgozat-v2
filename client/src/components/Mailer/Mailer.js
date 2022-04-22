@@ -18,7 +18,6 @@ const Mailer = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
   function sendEmail(e) {
     e.preventDefault();
 
@@ -31,8 +30,10 @@ const Mailer = () => {
       )
       .then((res) => {
         console.log(res);
+        alert("Thanks for your message! We'll hook you up soon!");
       })
       .catch((err) => console.log(err));
+    document.querySelector("form").reset();
   }
   return (
     <div className="container">
@@ -51,7 +52,7 @@ const Mailer = () => {
             <DialogContent>
               <DialogContentText id="alert-dialog-description">
                 <li>Question #1 </li>
-                <div>
+                <>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -60,9 +61,9 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </div>
+                </>
                 <li>Question #2</li>
-                <div>
+                <>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -71,9 +72,9 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </div>
+                </>
                 <li>Question #3</li>
-                <div>
+                <>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -82,9 +83,9 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </div>
+                </>
                 <li>Question #4</li>
-                <div>
+                <>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -93,9 +94,9 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </div>
+                </>
                 <li>Question #5</li>
-                <div>
+                <>
                   A: Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -104,7 +105,7 @@ const Mailer = () => {
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint
                   occaecat cupidatat non proident, sunt in culpa qui officia
                   deserunt mollit anim id est laborum.
-                </div>
+                </>
               </DialogContentText>
             </DialogContent>
             <DialogActions>
