@@ -88,18 +88,28 @@ function Converter() {
         `out.${outputFormat}` //output-name.outpformat
       );
 
-      const data = ffmpeg.FS("readFile", `out.${outputFormat}`);
+      try {
+        const data = ffmpeg.FS("readFile", `out.${outputFormat}`);
 
-      const url = URL.createObjectURL(
-        new Blob([data.buffer], { type: `${outputType}/${outputFormat}` })
-      );
+        const url = URL.createObjectURL(
+          new Blob([data.buffer], { type: `${outputType}/${outputFormat}` })
+        );
 
-      setOutput(url);
-      handleFinish();
-      console.log(url, `out.${outputFormat}`, `${outputType}`);
+        setOutput(url);
+        handleFinish();
+        if (url) {
+          console.log(url, `out.${outputFormat}`, `${outputType}`);
+        } else {
+          console.log("Invalid output configuration");
+        }
+      } catch (e) {
+        handleFinish();
+        setError("NO_OUTPUT_TYPE");
+      }
+
       console.log(document.getElementById("types").value);
     } catch (e) {
-      setError("Choose an output format!");
+      setError("INTERNAL_ERROR");
     }
   };
 
