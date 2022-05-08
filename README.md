@@ -69,6 +69,7 @@ npm install @ffmpeg/ffmpeg
   }
   +
   @material-ui/core
+  @material-ui/lab
 ```
 
 
@@ -86,6 +87,8 @@ npm install @ffmpeg/ffmpeg
 >```cd client```
 >
 >```npm install```
+>
+>``npm install --save --legacy-peer-deps @material-ui/core @material-ui/lab``
 >
 >```npm start```
 
